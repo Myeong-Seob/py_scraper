@@ -1,5 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+import os.path
+
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
@@ -48,9 +51,11 @@ def get_jobs(word):
 def init(word):
     print(f"Finding {word} in saramin..")
     saramin_jobs = get_jobs(word)
-    for job in saramin_jobs:
-        print(job)
+    save_path = "./scrapper_py"
+    completeName = os.path.join(save_path, f"saramin_{word}.json")
+    with open(completeName, "w") as file:
+        file.write(json.dumps(saramin_jobs, ensure_ascii=False))
     print("Done :)")
 
 
-init("인사")
+init("python")
