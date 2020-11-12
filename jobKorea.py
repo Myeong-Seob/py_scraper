@@ -16,3 +16,7 @@ for item in items:
     date = item.find("span", {"class": "date"}).get_text(strip=True)
     location = item.find("span", {"class": "loc long"}).get_text(strip=True)
     company = item.find("a", {"class": "dev_view"})["title"]
+    value = item["data-gno"]
+    detail_URL = (
+        f"http://www.jobkorea.co.kr/Recruit/GI_Read/{value}?Oem_Code=C1&logpath=1"
+    )
