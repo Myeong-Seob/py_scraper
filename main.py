@@ -1,20 +1,25 @@
 from saramin import get_saramin_jobs
+from jobKorea import get_jobKorea_jobs
 import json
 import os.path
-
-save_path = "./scrapper_py"
 
 
 def sum_jobs(word):
     print(f"Finding {word} Jobs.. ")
     saramin = get_saramin_jobs(word)
+    jobKorea = get_jobKorea_jobs(word)
     ask = ask_user()
     if ask == 1:
         print(saramin)
+        print(jobKorea)
     elif ask == 2:
-        saramin_path = os.path.join(save_path, f"saramin_{word}.json")
+        saramin_path = f"saramin_{word}.json"
         with open(saramin_path, "w") as file:
-            file.write(json.dumps(saramin, ensure_ascii=False))
+            file.write(json.dumps(saramin, ensure_ascii=False, indent=4))
+
+        jobKorea_path = f"jobKorea_{word}.json"
+        with open(jobKorea_path, "w") as file:
+            file.write(json.dumps(jobKorea, ensure_ascii=False, indent=4))
         print("Done :)")
 
 
@@ -44,4 +49,4 @@ def ask_user():
                 break
 
 
-# sum_jobs("java")
+sum_jobs("java")
