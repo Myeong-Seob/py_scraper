@@ -1,12 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
+}
 URL = "http://www.saramin.co.kr/zf_user/search?search_area=main&search_done=y&search_optional_item=n&searchType=search&searchword=python"
 
-soup = requests.get(URL)
+soup = requests.get(URL, headers=headers)
 saramin = BeautifulSoup(soup.text, "html.parser")
 content_id = saramin.find("div", {"id": "content"})
-content_class = content_id.find_all("div", {"class": "content"})
-for content in content_class:
-    item_recruit = content.find("div", {"class": "item_recruit"})
-    print(item_recruit)
+content_class = content_id.find("div", {"class": "content"})
+content_box = content_class.find_all("div", {"class": "item_recruit"})
+for item in content_box:
+    h2 = item.find("h2", {"class": "job_tit"})
+    title = h2.find("a")["title"]
+    print(title)
