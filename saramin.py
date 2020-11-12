@@ -48,14 +48,6 @@ def get_jobs(word):
     return jobs
 
 
-def init(word):
-    print(f"Finding {word} in saramin..")
+def get_saramin_jobs(word):
     saramin_jobs = get_jobs(word)
-    save_path = "./scrapper_py"
-    completeName = os.path.join(save_path, f"saramin_{word}.json")
-    with open(completeName, "w") as file:
-        file.write(json.dumps(saramin_jobs, ensure_ascii=False))
-    print("Done :)")
-
-
-init("python")
+    return saramin_jobs
