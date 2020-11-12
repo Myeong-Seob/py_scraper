@@ -44,4 +44,4 @@ def ask_user():
                 break
 
 
-sum_jobs("java")
+# sum_jobs("java")
