@@ -14,4 +14,11 @@ content_box = content_class.find_all("div", {"class": "item_recruit"})
 for item in content_box:
     h2 = item.find("h2", {"class": "job_tit"})
     title = h2.find("a")["title"]
-    print(title)
+    job_date = item.find("div", {"class": "job_date"})
+    date = job_date.find("span").get_text()
+    job_condition = item.find("div", {"class": "job_condition"})
+    spans = job_condition.find_all("a")
+    first = spans[0].get_text()
+    second = spans[1].get_text()
+    location = first + " " + second
+    print(location)
