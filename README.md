@@ -2,4 +2,9 @@
 
 ## learning Python with web scraper
 
-Web Scraper with Python
+#### saramin
+
+#### jobKorea
+
+- search jobs
+- save to json
