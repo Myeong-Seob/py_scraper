@@ -1,23 +1,22 @@
 from saramin import get_saramin_jobs
 from jobKorea import get_jobKorea_jobs
 import json
-import os.path
 
 
 def sum_jobs(word):
     print(f"Finding {word} Jobs.. ")
-    saramin = get_saramin_jobs(word)
-    jobKorea = get_jobKorea_jobs(word)
+    saramin = {f"{word}": get_saramin_jobs(word)}
+    jobKorea = {f"{word}": get_jobKorea_jobs(word)}
     ask = ask_user()
     if ask == 1:
         print(saramin)
         print(jobKorea)
     elif ask == 2:
-        saramin_path = f"saramin_{word}.json"
+        saramin_path = f"saramin.json"
         with open(saramin_path, "w") as file:
             file.write(json.dumps(saramin, ensure_ascii=False, indent=4))
 
-        jobKorea_path = f"jobKorea_{word}.json"
+        jobKorea_path = f"jobKorea.json"
         with open(jobKorea_path, "w") as file:
             file.write(json.dumps(jobKorea, ensure_ascii=False, indent=4))
         print("Done :)")
@@ -31,9 +30,9 @@ def ask_user():
             ask = int(
                 input(
                     """
-        #console: 1
-        #json: 2
-        #exit: 3
+#console: 1
+#json: 2
+#exit: 3
         """
                 )
             )
@@ -49,4 +48,18 @@ def ask_user():
                 break
 
 
-sum_jobs("java")
+def search_job():
+    ask = str(
+        input(
+            """
+        What do you looking for?
+        => """
+        )
+    )
+    if ask == "":
+        print("Please insert the word")
+    else:
+        sum_jobs(ask)
+
+
+search_job()
