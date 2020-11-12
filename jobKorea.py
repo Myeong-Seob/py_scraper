@@ -6,9 +6,13 @@ headers = {
 }
 
 
-URL = f"http://www.jobkorea.co.kr/Search/?stext=python&tabType=recruit&Page_No=1"
+URL = f"http://www.jobkorea.co.kr/Search/?stext=python"
 soup = requests.get(URL, headers=headers)
 jobkorea = BeautifulSoup(soup.text, "html.parser")
 list_default = jobkorea.find("div", {"class": "list-default"})
 items = list_default.find_all("li")
-print(len(items))
+for item in items:
+    title = item.find("a", {"class": "title"}).get_text(strip=True)
+    date = item.find("span", {"class": "date"}).get_text(strip=True)
+    location = item.find("span", {"class": "loc long"}).get_text(strip=True)
+    company = item.find("a", {"class": "dev_view"})["title"]
