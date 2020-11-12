@@ -1,5 +1,5 @@
-## Scraper
+# Scraper
 
-# learning Python with web scraper
+## learning Python with web scraper
 
 Web Scraper with Python
