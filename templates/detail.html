@@ -2,17 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="detail.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin:0;
+}
+header{
+    width: 100%;
+    border-bottom: 1px grey solid;
+}
+main {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+}
+main h4 {
+    font-size: 1.3em;
+    border-bottom: 1px gray solid;
+    padding-bottom: 10px;
+}
+footer {
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px grey solid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+footer h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+footer a {
+    margin: 15px 0;
+}
+.info_from {
+  display: flex;
+  flex-direction: column;
+}
+    </style>
     <title>Jobs</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1>Results</h1>
+        <h2>{{word}}: {{numJobs}} Results</h2>
+    </header>
     <main>
-        <h1>Detail</h1>
-        <p>you are looking {{word}}</p>
+        <h4>Title</h4>
+        <h4>Company</h4>
+        <h4>Location</h4>
+        <h4>Date</h4>
+        <h4>Link</h4>
+        {% for job in jobs %}
+        <span>{{job.title}}</span>
+        <span>{{job.company}}</span>
+        <span>{{job.location}}</span>
+        <span>{{job.date}}</span>
+        <a href="{{job.detail}}" target="_blank">Detail</a>
+        {% endfor%}
     </main>
-    <footer></footer>
+    <footer id="footer">
+        <div class="idea_from">
+            <h2>I Learned Python this site.</h2>
+            <a href="https://nomadcoders.co" target="_blank">View Site</a>
+        </div>
+        <div class="info_from">
+            <h2>Results from this.</h2>
+            <a href="https://www.saramin.co.kr/zf_user/" target="_blank">Saramin(사람인)</a>
+            <a href="https://www.jobkorea.co.kr" target="_blank">jobKorea(잡코리아)</a>
+        </div>
+    </footer>
 </body>
 </html>
