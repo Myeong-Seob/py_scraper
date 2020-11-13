@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Search</title>
 </head>
 <body>
-    <h1>Hello from Vscode!</h1>
+    <header>
+        <h1>Job Search</h1>
+        <p>You can find jobs from two sites.</p>
+        <p>You can see the results in this site.</p>
+        <p>Also, You can download results to json / csv</p>
+    </header>
+        <form action="/detail" method="GET">
+            <div>
+                <input type="text" placeholder="Search Jobs" required name="word">
+                <button>Search</button>
+            </div>
+        </form>
+    <footer>
+        <div class="idea_from">
+            <h2>I Learned Python this site.</h2>
+            <a href="https://nomadcoders.co" target="_blank">View Site</a>
+        </div>
+        <div class="info_from">
+            <h2>Results from this.</h2>
+            <a href="https://www.saramin.co.kr/zf_user/" target="_blank">Saramin(사람인)</a>
+            <a href="https://www.jobkorea.co.kr" target="_blank">jobKorea(잡코리아)</a>
+        </div>
+    </footer>
 </body>
 </html>
