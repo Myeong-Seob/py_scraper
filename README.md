@@ -1,10 +1,22 @@
 # Scraper
 
-## learning Python with web scraper
+## Learning Python with web scraper
 
-#### saramin
+---
 
-#### jobKorea
+#### Flask, BeautifulSoup4, Requests
 
-- search jobs
-- save to json
+- Job search
+- View in flask web
+- Export to json / csv
+
+---
+
+### Learned Python
+
+- nomadcoder [https://nomadcoders.co/]
+
+### Jobs from
+
+- saramin [https://www.saramin.co.kr/zf_user/]
+- jobKorea [https://www.jobkorea.co.kr/]
