@@ -16,6 +16,7 @@
 header{
     width: 100%;
     border-bottom: 1px grey solid;
+    padding-bottom: 20px;
 }
 main {
     width: 90%;
@@ -54,6 +55,8 @@ footer a {
     <header>
         <h1>Results</h1>
         <h2>{{word}}: {{numJobs}} Results</h2>
+        <a href="/exportcsv?word={{word}}">Export</a>
+        <a href="/exportjson?word={{word}}">Export</a>
     </header>
     <main>
         <h4>Title</h4>
