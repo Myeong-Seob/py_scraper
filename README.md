@@ -2,8 +2,6 @@
 
 ## Learning Python with web scraper
 
----
-
 #### Flask, BeautifulSoup4, Requests
 
 - Job search
